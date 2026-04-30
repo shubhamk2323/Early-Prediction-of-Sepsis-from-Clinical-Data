@@ -1,6 +1,6 @@
-# Sepsyd Replication: Sepsis Prediction Pipeline
+# Sepsis Prediction Pipeline
 
-This repository contains the replication of the **Sepsyd Model** (Rank 3 in the PhysioNet 2019 Early Prediction of Sepsis Challenge). The pipeline trains an XGBoost classifier on massive, real-world ICU patient records to predict Sepsis onset hours before it occurs.
+The pipeline trains an XGBoost classifier on massive, real-world ICU patient records to predict Sepsis onset hours before it occurs.
 
 ## 🚀 Project Overview
 Sepsis is a severe clinical condition with high mortality rates if not detected early. This project focuses on analyzing messy, real-world intensive care unit (ICU) data (vital signs, laboratory test results) from over 40,000 patients. 
@@ -25,7 +25,7 @@ The pipeline includes an Ultra Comprehensive Sepsis Evaluation Report to evaluat
 
 ## 📁 Repository Structure
 
-* `Sepsyd_Model_Pipeline.ipynb`: The main End-to-End training pipeline. It handles loading the massive dataset, applying the complex temporal feature engineering, training the XGBoost model, and outputting the final metrics.
+* `Sepsis_Model_Pipeline.ipynb`: The main End-to-End training pipeline. It handles loading the massive dataset, applying the complex temporal feature engineering, training the XGBoost model, and outputting the final metrics.
 * `combined_sepsis_data.csv`: The core dataset containing 1,758,170 hours of clinical ICU data combined from 40,000+ individual patient files (Due to size limits, make sure this is available locally).
 
 ## ⚙️ How to Run
@@ -37,5 +37,5 @@ The pipeline includes an Ultra Comprehensive Sepsis Evaluation Report to evaluat
    ```
 3. Make sure the `combined_sepsis_data.csv` file is placed in the same directory as the notebook.
 4. Open the Jupyter Notebook:
-   - `Sepsyd_Model_Pipeline.ipynb`
+   - `Sepsis_Model_Pipeline.ipynb`
 5. Click **"Restart & Run All"** to execute the pipeline. The notebook will automatically chunk the data, apply the 720-feature extraction, and evaluate the final XGBoost model.
