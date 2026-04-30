@@ -1,11 +1,11 @@
-# Sepsis Prediction Pipeline
+# Sepsyd Replication: Sepsis Prediction Pipeline
 
-The pipeline trains an XGBoost classifier on massive, real-world ICU patient records to predict Sepsis onset hours before it occurs.
+This repository contains the replication of the **Sepsyd Model** (Rank 3 in the PhysioNet 2019 Early Prediction of Sepsis Challenge). The pipeline trains an XGBoost classifier on massive, real-world ICU patient records to predict Sepsis onset hours before it occurs.
 
 ## 🚀 Project Overview
 Sepsis is a severe clinical condition with high mortality rates if not detected early. This project focuses on analyzing messy, real-world intensive care unit (ICU) data (vital signs, laboratory test results) from over 40,000 patients. 
 
-We downloaded and merged over 40k individual `.psv` files into a single, massive 1.7+ million row dataset (`combined_sepsis_data.csv`). We then implemented the official feature extraction and modeling logic from the Sepsyd team's methodology.
+The original dataset consists of over 40k individual `.psv` files which were merged into a single, massive 1.7+ million row dataset (`combined_sepsis_data.csv`). Due to file size limits, this dataset is not included directly in the repository. We implemented the official feature extraction and modeling logic from the Sepsyd team's methodology to train our final model on this data.
 
 ## 🧠 Key Features & Technical Highlights
 
@@ -25,8 +25,8 @@ The pipeline includes an Ultra Comprehensive Sepsis Evaluation Report to evaluat
 
 ## 📁 Repository Structure
 
-* `Sepsis_Model_Pipeline.ipynb`: The main End-to-End training pipeline. It handles loading the massive dataset, applying the complex temporal feature engineering, training the XGBoost model, and outputting the final metrics.
-* `combined_sepsis_data.csv`: The core dataset containing 1,758,170 hours of clinical ICU data combined from 40,000+ individual patient files (Due to size limits, make sure this is available locally).
+* `Sepsyd_Model_Pipeline.ipynb`: The main End-to-End training pipeline. It handles loading the massive dataset, applying the complex temporal feature engineering, training the XGBoost model, and outputting the final metrics.
+* **Note on Data:** The `combined_sepsis_data.csv` is required to run the notebook but is not uploaded due to GitHub size limits. Please follow the instructions below to download and prepare the data.
 
 ## ⚙️ How to Run
 
@@ -35,7 +35,8 @@ The pipeline includes an Ultra Comprehensive Sepsis Evaluation Report to evaluat
    ```bash
    pip install pandas numpy xgboost scikit-learn
    ```
-3. Make sure the `combined_sepsis_data.csv` file is placed in the same directory as the notebook.
-4. Open the Jupyter Notebook:
-   - `Sepsis_Model_Pipeline.ipynb`
-5. Click **"Restart & Run All"** to execute the pipeline. The notebook will automatically chunk the data, apply the 720-feature extraction, and evaluate the final XGBoost model.
+3. **Download the Data:** Download the original dataset from the [PhysioNet 2019 Challenge website](https://physionet.org/content/challenge-2019/1.0.0/).
+4. Extract the `.psv` files, combine them into a single file named `combined_sepsis_data.csv`, and place it in the same directory as the notebook.
+5. Open the Jupyter Notebook:
+   - `Sepsyd_Model_Pipeline.ipynb`
+6. Click **"Restart & Run All"** to execute the pipeline. The notebook will automatically chunk the data, apply the 720-feature extraction, and evaluate the final XGBoost model.
