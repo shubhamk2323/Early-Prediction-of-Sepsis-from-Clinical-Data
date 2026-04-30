@@ -1,19 +1,19 @@
-# Sepsyd Replication: Sepsis Prediction Pipeline
+# Sepsis: Early Sepsis Prediction Pipeline
 
-This repository contains the replication of the **Sepsyd Model** (Rank 3 in the PhysioNet 2019 Early Prediction of Sepsis Challenge). The pipeline trains an XGBoost classifier on massive, real-world ICU patient records to predict Sepsis onset hours before it occurs.
+This repository contains **Sepsis**, an advanced End-to-End Machine Learning pipeline. The pipeline trains an XGBoost classifier on massive, real-world ICU patient records to predict life-threatening Sepsis onset hours before it occurs.
 
 ## 🚀 Project Overview
 Sepsis is a severe clinical condition with high mortality rates if not detected early. This project focuses on analyzing messy, real-world intensive care unit (ICU) data (vital signs, laboratory test results) from over 40,000 patients. 
 
-The original dataset consists of over 40k individual `.psv` files which were merged into a single, massive 1.7+ million row dataset (`combined_sepsis_data.csv`). Due to file size limits, this dataset is not included directly in the repository. We implemented the official feature extraction and modeling logic from the Sepsyd team's methodology to train our final model on this data.
+The original dataset consists of over 40k individual `.psv` files which were merged into a single, massive 1.7+ million row dataset (`combined_sepsis_data.csv`). Due to file size limits, this dataset is not included directly in the repository. We engineered a highly optimized feature extraction and modeling architecture to train our final model on this data.
 
 ## 🧠 Key Features & Technical Highlights
 
-* **Z-Score Normalization:** Normalized 40 distinct clinical features using the exact population baseline means and standard deviations discovered by the Sepsyd team.
+* **Z-Score Normalization:** Normalized 40 distinct clinical features using carefully computed population baseline means and standard deviations.
 * **Log Scaling:** Applied logarithmic scaling to highly skewed laboratory results (like Bilirubin and Creatinine) to stabilize variance.
 * **Delta Calculations:** Calculated the exact hour-to-hour velocity of every vital sign and lab value (`Current Hour - Previous Hour`).
 * **Temporal Array Flattening:** Implemented a 6-hour sliding window architecture. Instead of just taking the mean, we shifted the entire clinical array up to `T-5`, flattening 6 hours of patient history into a single 720-dimensional feature vector per hour.
-* **XGBoost Classifier:** Trained an XGBoost model using the precise hyperparameters from the Sepsyd paper (e.g., `scale_pos_weight: 40`, `max_depth: 4`, `n_estimators: 30`).
+* **XGBoost Classifier:** Trained an advanced XGBoost model tuned with specific hyperparameters to combat severe class imbalance (e.g., `scale_pos_weight: 40`, `max_depth: 4`, `n_estimators: 30`).
 
 ## 📊 Evaluation & Metrics
 The pipeline includes an Ultra Comprehensive Sepsis Evaluation Report to evaluate performance under extreme class imbalance. Typical realistic results on this dataset include:
@@ -25,7 +25,7 @@ The pipeline includes an Ultra Comprehensive Sepsis Evaluation Report to evaluat
 
 ## 📁 Repository Structure
 
-* `Sepsyd_Model_Pipeline.ipynb`: The main End-to-End training pipeline. It handles loading the massive dataset, applying the complex temporal feature engineering, training the XGBoost model, and outputting the final metrics.
+* `Sepsis_Model_Pipeline.ipynb`: The main End-to-End training pipeline. It handles loading the massive dataset, applying the complex temporal feature engineering, training the XGBoost model, and outputting the final metrics.
 * **Note on Data:** The `combined_sepsis_data.csv` is required to run the notebook but is not uploaded due to GitHub size limits. Please follow the instructions below to download and prepare the data.
 
 ## ⚙️ How to Run
@@ -38,5 +38,5 @@ The pipeline includes an Ultra Comprehensive Sepsis Evaluation Report to evaluat
 3. **Download the Data:** Download the original dataset from the [PhysioNet 2019 Challenge website](https://physionet.org/content/challenge-2019/1.0.0/).
 4. Extract the `.psv` files, combine them into a single file named `combined_sepsis_data.csv`, and place it in the same directory as the notebook.
 5. Open the Jupyter Notebook:
-   - `Sepsyd_Model_Pipeline.ipynb`
+   - `Sepsis_Model_Pipeline.ipynb`
 6. Click **"Restart & Run All"** to execute the pipeline. The notebook will automatically chunk the data, apply the 720-feature extraction, and evaluate the final XGBoost model.
