@@ -1,7 +1,7 @@
 # Sepsis: Early Sepsis Prediction Pipeline
 
 This repository contains **Sepsis**, an advanced End-to-End Machine Learning pipeline. The pipeline trains an XGBoost classifier on massive, real-world ICU patient records to predict life-threatening Sepsis onset hours before it occurs.
-
+This work is inspired by the work from Sepsyd team which came on 2nd place in Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019
 ## 🚀 Project Overview
 Sepsis is a severe clinical condition with high mortality rates if not detected early. This project focuses on analyzing messy, real-world intensive care unit (ICU) data (vital signs, laboratory test results) from over 40,000 patients. 
 
