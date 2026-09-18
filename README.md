@@ -2,12 +2,12 @@
 
 This repository contains **Sepsis**, an advanced End-to-End Machine Learning pipeline. The pipeline trains an XGBoost classifier on massive, real-world ICU patient records to predict life-threatening Sepsis onset hours before it occurs.
 This work is inspired by the work from Sepsyd team which came on 2nd place in Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019
-## 🚀 Project Overview
+## Project Overview
 Sepsis is a severe clinical condition with high mortality rates if not detected early. This project focuses on analyzing messy, real-world intensive care unit (ICU) data (vital signs, laboratory test results) from over 40,000 patients. 
 
 The original dataset consists of over 40k individual `.psv` files which were merged into a single, massive 1.7+ million row dataset (`combined_sepsis_data.csv`). Due to file size limits, this dataset is not included directly in the repository. We engineered a highly optimized feature extraction and modeling architecture to train our final model on this data.
 
-## 🧠 Key Features & Technical Highlights
+## Key Features & Technical Highlights
 
 * **Z-Score Normalization:** Normalized 40 distinct clinical features using carefully computed population baseline means and standard deviations.
 * **Log Scaling:** Applied logarithmic scaling to highly skewed laboratory results (like Bilirubin and Creatinine) to stabilize variance.
@@ -15,7 +15,7 @@ The original dataset consists of over 40k individual `.psv` files which were mer
 * **Temporal Array Flattening:** Implemented a 6-hour sliding window architecture. Instead of just taking the mean, we shifted the entire clinical array up to `T-5`, flattening 6 hours of patient history into a single 720-dimensional feature vector per hour.
 * **XGBoost Classifier:** Trained an advanced XGBoost model tuned with specific hyperparameters to combat severe class imbalance (e.g., `scale_pos_weight: 40`, `max_depth: 4`, `n_estimators: 30`).
 
-## 📊 Evaluation & Metrics
+## Evaluation & Metrics
 The pipeline includes an Ultra Comprehensive Sepsis Evaluation Report to evaluate performance under extreme class imbalance. Typical realistic results on this dataset include:
 
 - **AUROC (ROC curve area):** ~0.71 (Strong overall discrimination)
@@ -23,12 +23,12 @@ The pipeline includes an Ultra Comprehensive Sepsis Evaluation Report to evaluat
 - **Recall (Sensitivity):** ~0.52 (Successfully catching over 52% of actual sepsis events among severe noise)
 - **F2-Score:** ~0.17 (Prioritizing recall over precision)
 
-## 📁 Repository Structure
+## Repository Structure
 
 * `Sepsis_Model_Pipeline.ipynb`: The main End-to-End training pipeline. It handles loading the massive dataset, applying the complex temporal feature engineering, training the XGBoost model, and outputting the final metrics.
 * **Note on Data:** The `combined_sepsis_data.csv` is required to run the notebook but is not uploaded due to GitHub size limits. Please follow the instructions below to download and prepare the data.
 
-## ⚙️ How to Run
+## How to Run
 
 1. Clone the repository to your local machine.
 2. Ensure you have the required dependencies installed:
